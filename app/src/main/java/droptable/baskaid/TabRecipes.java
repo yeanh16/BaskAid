@@ -13,20 +13,22 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link TabBasket.OnFragmentInteractionListener} interface
+ * {@link TabRecipes.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link TabBasket#newInstance} factory method to
+ * Use the {@link TabRecipes#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TabBasket extends Fragment {
+public class TabRecipes extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PAGE = "ARG_PAGE";
 
+    // TODO: Rename and change types of parameters
     private int mPage;
 
     private OnFragmentInteractionListener mListener;
 
-    public TabBasket() {
+    public TabRecipes() {
         // Required empty public constructor
     }
 
@@ -34,10 +36,9 @@ public class TabBasket extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      */
-    public static TabBasket newInstance(int page) {
-        TabBasket fragment = new TabBasket();
+    public static TabRecipes newInstance(int page) {
+        TabRecipes fragment = new TabRecipes();
         Bundle args = new Bundle();
-        args.putInt(ARG_PAGE, page);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,7 +52,7 @@ public class TabBasket extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tab_basket, container, false);
+        View view = inflater.inflate(R.layout.fragment_tab_recipes, container, false);
         TextView textView = (TextView) view;
         //textView.setText("Fragment #" + mPage);
         return view;
@@ -64,16 +65,16 @@ public class TabBasket extends Fragment {
         }
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        if (context instanceof OnFragmentInteractionListener) {
+//            mListener = (OnFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnFragmentInteractionListener");
+//        }
+//    }
 
     @Override
     public void onDetach() {
