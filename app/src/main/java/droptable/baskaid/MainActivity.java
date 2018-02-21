@@ -3,6 +3,8 @@ package droptable.baskaid;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -23,6 +25,10 @@ import android.content.Context;
 public class MainActivity extends AppCompatActivity
         implements TabBasket.OnFragmentInteractionListener, TabRecipes.OnFragmentInteractionListener{
 
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +45,15 @@ public class MainActivity extends AppCompatActivity
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+//        //recycler views for basket
+//        mRecyclerView = (RecyclerView) findViewById(R.id.items_recycler_view);
+//        mRecyclerView.setHasFixedSize(true); //this setting improves performance when we know that the layout size does not change with content
+//        //use a linear layout manager
+//        mLayoutManager = new LinearLayoutManager(this);
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//        //specify an adapter
+//        //mAdapter = new BasketItemAdapter(itemsDataset);
+//        mRecyclerView.setAdapter(mAdapter);
     }
 
 
