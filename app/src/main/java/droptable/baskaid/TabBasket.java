@@ -70,7 +70,21 @@ public class TabBasket extends Fragment {
         //initializing the itemsList
         //TODO:in the finished app, this would be populated with items downloaded from the database
         itemsList = new ArrayList<>();
-        itemsList.add(new BasketItem(1,"Chicken",4, R.drawable.chicken));
+        itemsList.add(new BasketItem(1,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new BasketItem(2,"Grapes",1.50, R.drawable.grapes));
+        itemsList.add(new BasketItem(3,"Noodles",0.70, R.drawable.noodles));
+        itemsList.add(new BasketItem(4,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new BasketItem(5,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new BasketItem(6,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new BasketItem(7,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new BasketItem(8,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new BasketItem(9,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new BasketItem(10,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new BasketItem(11,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new BasketItem(12,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+
+
 
         //creating recyclerview adapter
         BasketItemAdapter adapter = new BasketItemAdapter(this.getContext(), itemsList);

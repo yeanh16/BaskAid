@@ -7,16 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.text.DecimalFormat;
 
 import java.util.List;
 
 /**
  * Created by Yean on 17/02/2018.
- * An adapter for viewing basket items with the recylcler view
+ * An adapter for viewing basket items with the recycler view
  */
 
 public class BasketItemAdapter extends RecyclerView.Adapter<BasketItemAdapter.ViewHolder> {
-    private String[] mDataset;
 
     private Context mCtx;
     private List<BasketItem> itemList;
@@ -50,7 +50,8 @@ public class BasketItemAdapter extends RecyclerView.Adapter<BasketItemAdapter.Vi
         //bind the sata with the viewholder views
         holder.mTextView.setText(item.getTitle());
         holder.mImageView.setImageDrawable(mCtx.getResources().getDrawable((item.getImageid())));
-
+        DecimalFormat decim = new DecimalFormat("0.00");
+        holder.mPriceView.setText("£" + Double.toString(Double.parseDouble(decim.format(item.getPrice()))));
     }
 
     @Override
@@ -65,11 +66,13 @@ public class BasketItemAdapter extends RecyclerView.Adapter<BasketItemAdapter.Vi
 
         private TextView mTextView;
         private ImageView mImageView;
+        private TextView mPriceView;
 
         public ViewHolder(View basketItemView) {
             super(basketItemView);
             mTextView = basketItemView.findViewById(R.id.textViewTitle);
             mImageView = basketItemView.findViewById(R.id.imageView1);
+            mPriceView = basketItemView.findViewById(R.id.textViewPrice);
         }
 
 

@@ -6,18 +6,69 @@
     android:gravity="center"
     android:text="HI THERE FROM BASKET"/>-->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:orientation="vertical"
     tools:context="droptable.baskaid.TabBasket">
 
+    <TextView
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/items_recycler_view"
-        android:scrollbars="vertical"
+        android:id="@+id/totalprice"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:text="£88.88"
+        android:textAlignment="textEnd"
+        android:textSize="24sp" />
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="0dp"
+        android:layout_weight="3">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/items_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:padding="5dp"
+            android:scrollbars="vertical" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/recomendations_recycler_view"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp"
+        android:paddingBottom="5dp"
+        android:text="How about...?"
+        android:textSize="24sp" />
+
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:context="droptable.baskaid.TabBasket">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recomendations_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:padding="5dp"
+            android:scrollbars="horizontal" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
+
