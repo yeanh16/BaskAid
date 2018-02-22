@@ -25,8 +25,6 @@ import android.content.Context;
 public class MainActivity extends AppCompatActivity
         implements TabBasket.OnFragmentInteractionListener, TabRecipes.OnFragmentInteractionListener{
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
