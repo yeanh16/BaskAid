@@ -18,23 +18,32 @@
             android:padding="8dp">
 
 
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/chicken"></ImageView>
+            <FrameLayout android:id="@+id/frame"
+                android:layout_width="45dp"
+                android:layout_height="45dp">
 
-           <!-- <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/CircleImage"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/chicken"
-                app:border_color="@color/white"
-                app:border_width="3dp" />-->
+                <ImageView android:id="@+id/imageView1"
+                    android:scaleType="centerCrop"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/chicken" />
+
+                <ImageView android:id="@+id/circle_crop"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/circle_crop" />
+            </FrameLayout>
+
+
+            <!-- <de.hdodenhof.circleimageview.CircleImageView
+                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                 android:id="@+id/CircleImage"
+                 android:layout_width="40dp"
+                 android:layout_height="40dp"
+                 android:layout_centerVertical="true"
+                 android:src="@drawable/chicken"
+                 app:border_color="@color/white"
+                 app:border_width="3dp" />-->
 
             <TextView
                 android:id="@+id/textViewTitle"
@@ -42,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/imageView1"
+                android:layout_toRightOf="@id/frame"
                 android:text="Grapes"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="#000000" />

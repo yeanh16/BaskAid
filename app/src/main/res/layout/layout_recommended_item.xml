@@ -12,6 +12,7 @@
         android:layout_height="45dp">
 
         <ImageView android:id="@+id/recommended_pic"
+            android:scaleType="centerCrop"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/chicken" />
