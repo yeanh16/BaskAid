@@ -11,8 +11,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="10dp"
     android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:scrollbars="horizontal"
     tools:context="droptable.baskaid.TabBasket">
 
     <TextView
@@ -27,8 +28,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingBottom="0dp"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        android:paddingBottom="0dp">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/items_recycler_view"
@@ -52,23 +53,27 @@
         android:textSize="24sp" />
 
 
-    <RelativeLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:orientation="horizontal"
         tools:context="droptable.baskaid.TabBasket">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recomendations_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
             android:padding="5dp"
-            android:scrollbars="horizontal" />
+            android:scrollbars="none">
+
+        </android.support.v7.widget.RecyclerView>
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
 

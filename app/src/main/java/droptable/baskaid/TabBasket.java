@@ -26,11 +26,12 @@ import java.util.List;
 public class TabBasket extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PAGE = "ARG_PAGE";
-    private int mPage;
     private OnFragmentInteractionListener mListener;
 
     List<BasketItem> itemsList;
-    RecyclerView recyclerView;
+    List<BasketItem> recommendedItemsList;
+    RecyclerView recyclerViewBasket;
+    RecyclerView recyclerViewRecommended;
 
     public TabBasket() {
         // Required empty public constructor
@@ -63,9 +64,13 @@ public class TabBasket extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tab_basket, container, false);
 
         //getting the recyclerview from xml
-        recyclerView = (RecyclerView) view.findViewById(R.id.items_recycler_view);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerViewBasket = (RecyclerView) view.findViewById(R.id.items_recycler_view);
+        recyclerViewBasket.setHasFixedSize(true);
+        recyclerViewBasket.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        //second recylclerview for recommended
+        recyclerViewRecommended = (RecyclerView) view.findViewById(R.id.recomendations_recycler_view);
+        recyclerViewRecommended.setHasFixedSize(true);
+        recyclerViewRecommended.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         //initializing the itemsList
         //TODO:in the finished app, this would be populated with items downloaded from the database
@@ -84,13 +89,27 @@ public class TabBasket extends Fragment {
         itemsList.add(new BasketItem(12,"Chicken",4.00, R.drawable.chicken));
         itemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
 
+        recommendedItemsList = new ArrayList<>();
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
 
 
         //creating recyclerview adapter
-        BasketItemAdapter adapter = new BasketItemAdapter(this.getContext(), itemsList);
+        BasketItemAdapter adapterBasket = new BasketItemAdapter(this.getContext(), itemsList);
+        RecommendedItemAdapter adapterRecommended = new RecommendedItemAdapter(this.getContext(), recommendedItemsList);
 
         //setting adapter to recyclerview
-        recyclerView.setAdapter(adapter);
+        recyclerViewBasket.setAdapter(adapterBasket);
+        recyclerViewRecommended.setAdapter(adapterRecommended);
 
         return view;
     }
