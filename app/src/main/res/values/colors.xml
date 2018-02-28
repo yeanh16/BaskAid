@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="BaskAid_Green">#beed30</color>
+    <color name="Transparent">#80ffffff</color>
 </resources>

@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +27,8 @@ public class TabBasket extends Fragment {
     private static final String ARG_PAGE = "ARG_PAGE";
     private OnFragmentInteractionListener mListener;
 
-    List<BasketItem> itemsList;
-    List<BasketItem> recommendedItemsList;
+    public static ArrayList<ItemBasket> itemsList;
+    ArrayList<ItemBasket> recommendedItemsList;
     RecyclerView recyclerViewBasket;
     RecyclerView recyclerViewRecommended;
 
@@ -70,42 +69,46 @@ public class TabBasket extends Fragment {
         //second recylclerview for recommended
         recyclerViewRecommended = (RecyclerView) view.findViewById(R.id.recomendations_recycler_view);
         recyclerViewRecommended.setHasFixedSize(true);
+        //recyclerViewRecommended.addItemDecoration(new OverlapDecoration());
         recyclerViewRecommended.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         //initializing the itemsList
         //TODO:in the finished app, this would be populated with items downloaded from the database
         itemsList = new ArrayList<>();
-        itemsList.add(new BasketItem(1,"Chicken",4.00, R.drawable.chicken));
-        itemsList.add(new BasketItem(2,"Grapes",1.50, R.drawable.grapes));
-        itemsList.add(new BasketItem(3,"Noodles",0.70, R.drawable.noodles));
-        itemsList.add(new BasketItem(4,"Chicken",4.00, R.drawable.chicken));
-        itemsList.add(new BasketItem(5,"Chicken",4.00, R.drawable.chicken));
-        itemsList.add(new BasketItem(6,"Chicken",4.00, R.drawable.chicken));
-        itemsList.add(new BasketItem(7,"Chicken",4.00, R.drawable.chicken));
-        itemsList.add(new BasketItem(8,"Chicken",4.00, R.drawable.chicken));
-        itemsList.add(new BasketItem(9,"Chicken",4.00, R.drawable.chicken));
-        itemsList.add(new BasketItem(10,"Chicken",4.00, R.drawable.chicken));
-        itemsList.add(new BasketItem(11,"Chicken",4.00, R.drawable.chicken));
-        itemsList.add(new BasketItem(12,"Chicken",4.00, R.drawable.chicken));
-        itemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(1,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(2,"Grapes",1.50, R.drawable.grapes));
+        itemsList.add(new ItemBasket(3,"Noodles",0.70, R.drawable.noodles));
+        itemsList.add(new ItemBasket(4,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(5,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(6,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(7,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(8,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(9,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(10,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(11,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(12,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        itemsList.add(new ItemBasket(14,"Beef Mince", 2.00, R.drawable.beef_mince));
+        itemsList.add(new ItemBasket(15,"fusilli", 0.60, R.drawable.fusilli));
+
 
         recommendedItemsList = new ArrayList<>();
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
-        recommendedItemsList.add(new BasketItem(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
+        recommendedItemsList.add(new ItemBasket(13,"Chicken",4.00, R.drawable.chicken));
 
 
         //creating recyclerview adapter
-        BasketItemAdapter adapterBasket = new BasketItemAdapter(this.getContext(), itemsList);
-        RecommendedItemAdapter adapterRecommended = new RecommendedItemAdapter(this.getContext(), recommendedItemsList);
+        AdapterBasketItem adapterBasket = new AdapterBasketItem(this.getContext(), itemsList);
+        AdapterRecommendedItem adapterRecommended = new AdapterRecommendedItem(this.getContext(), recommendedItemsList);
 
         //setting adapter to recyclerview
         recyclerViewBasket.setAdapter(adapterBasket);
@@ -153,3 +156,5 @@ public class TabBasket extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 }
+
+

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity
 //        mLayoutManager = new LinearLayoutManager(this);
 //        mRecyclerView.setLayoutManager(mLayoutManager);
 //        //specify an adapter
-//        //mAdapter = new BasketItemAdapter(itemsDataset);
+//        //mAdapter = new AdapterBasketItem(itemsDataset);
 //        mRecyclerView.setAdapter(mAdapter);
     }
 

@@ -7,17 +7,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <FrameLayout android:id="@+id/frame"
+    <FrameLayout
+        android:id="@+id/frame"
         android:layout_width="45dp"
-        android:layout_height="45dp">
+        android:layout_height="45dp"
+        android:background="@color/Transparent"
+        android:padding="-10dp">
 
-        <ImageView android:id="@+id/recommended_pic"
-            android:scaleType="centerCrop"
+        <ImageView
+            android:id="@+id/recommended_pic"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/chicken" />
 
-        <ImageView android:id="@+id/circle_crop"
+        <ImageView
+            android:id="@+id/circle_crop"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/circle_crop" />

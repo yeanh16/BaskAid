@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -16,12 +14,12 @@ import java.util.List;
  * An adapter for viewing basket items with the recycler view
  */
 
-public class RecommendedItemAdapter extends RecyclerView.Adapter<RecommendedItemAdapter.ViewHolder> {
+public class AdapterRecommendedItem extends RecyclerView.Adapter<AdapterRecommendedItem.ViewHolder> {
 
     private Context mCtx;
-    private List<BasketItem> recommendedItemList;
+    private List<ItemBasket> recommendedItemList;
 
-    public RecommendedItemAdapter(Context mCtx, List<BasketItem> recommendedItemList) {
+    public AdapterRecommendedItem(Context mCtx, List<ItemBasket> recommendedItemList) {
         this.mCtx = mCtx;
         this.recommendedItemList = recommendedItemList;
     }
@@ -45,7 +43,7 @@ public class RecommendedItemAdapter extends RecyclerView.Adapter<RecommendedItem
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //get the product of the specified position
-        BasketItem item = recommendedItemList.get(position);
+        ItemBasket item = recommendedItemList.get(position);
 
         //bind the sata with the viewholder views
         holder.mImageView.setImageDrawable(mCtx.getResources().getDrawable((item.getImageid())));

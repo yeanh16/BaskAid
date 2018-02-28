@@ -16,12 +16,12 @@ import java.util.List;
  * An adapter for viewing basket items with the recycler view
  */
 
-public class BasketItemAdapter extends RecyclerView.Adapter<BasketItemAdapter.ViewHolder> {
+public class AdapterBasketItem extends RecyclerView.Adapter<AdapterBasketItem.ViewHolder> {
 
     private Context mCtx;
-    private List<BasketItem> itemList;
+    private List<ItemBasket> itemList;
 
-    public BasketItemAdapter(Context mCtx, List<BasketItem> itemList) {
+    public AdapterBasketItem(Context mCtx, List<ItemBasket> itemList) {
         this.mCtx = mCtx;
         this.itemList = itemList;
     }
@@ -45,7 +45,7 @@ public class BasketItemAdapter extends RecyclerView.Adapter<BasketItemAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //get the product of the specified position
-        BasketItem item = itemList.get(position);
+        ItemBasket item = itemList.get(position);
 
         //bind the sata with the viewholder views
         holder.mTextView.setText(item.getTitle());

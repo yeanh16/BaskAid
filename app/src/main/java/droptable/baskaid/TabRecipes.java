@@ -4,10 +4,15 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -19,14 +24,11 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class TabRecipes extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PAGE = "ARG_PAGE";
-
-    // TODO: Rename and change types of parameters
-    private int mPage;
-
     private OnFragmentInteractionListener mListener;
+    private List<ItemRecipe> recipesList;
+    private RecyclerView recipesRecyclerView;
 
     public TabRecipes() {
         // Required empty public constructor
@@ -53,8 +55,27 @@ public class TabRecipes extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tab_recipes, container, false);
-        TextView textView = (TextView) view;
-        //textView.setText("Fragment #" + mPage);
+
+        //getting the recyclerview from xml
+        recipesRecyclerView = (RecyclerView) view.findViewById(R.id.recipes_recycler_view);
+        recipesRecyclerView.setHasFixedSize(true);
+        recipesRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+
+        //initializing the itemsList
+        //TODO:in the finished app, this would be populated with recipes downloaded from the database
+        recipesList = new ArrayList<>();
+        ArrayList<ItemBasket> itemsList = new ArrayList<ItemBasket>(); //this is for the recipe
+        itemsList.add(new ItemBasket(1,"Beef Mince", 2.00, R.drawable.beef_mince));
+        itemsList.add(new ItemBasket(2,"fusilli", 0.60, R.drawable.fusilli));
+        itemsList.add(new ItemBasket(3,"Bolognaise", 1.50, R.drawable.bolognaise));
+        recipesList.add(new ItemRecipe(1, "Pasta Bolognaise", itemsList, R.drawable.pasta_bolog));
+
+        //creating recyclerview adapter
+        AdapterRecipeItem adapterRecipe = new AdapterRecipeItem(this.getContext(), recipesList);
+
+        //setting adapter to recyclerview
+        recipesRecyclerView.setAdapter(adapterRecipe);
+
         return view;
     }
 
