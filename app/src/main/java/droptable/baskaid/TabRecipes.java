@@ -65,9 +65,9 @@ public class TabRecipes extends Fragment {
         //TODO:in the finished app, this would be populated with recipes downloaded from the database
         recipesList = new ArrayList<>();
         ArrayList<ItemBasket> itemsList = new ArrayList<ItemBasket>(); //this is for the recipe
-        itemsList.add(new ItemBasket(1,"Beef Mince", 2.00, R.drawable.beef_mince));
-        itemsList.add(new ItemBasket(2,"fusilli", 0.60, R.drawable.fusilli));
-        itemsList.add(new ItemBasket(3,"Bolognaise", 1.50, R.drawable.bolognaise));
+        itemsList.add(new ItemBasket(14,"Beef Mince", 2.00, R.drawable.beef_mince));
+        itemsList.add(new ItemBasket(15,"fusilli", 0.60, R.drawable.fusilli));
+        itemsList.add(new ItemBasket(16,"Bolognaise", 1.50, R.drawable.bolognaise));
         recipesList.add(new ItemRecipe(1, "Pasta Bolognaise", itemsList, R.drawable.pasta_bolog));
 
         //creating recyclerview adapter

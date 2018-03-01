@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:text="£88.88"
         android:textAlignment="textEnd"
+        android:layout_marginEnd="10dp"
         android:textSize="24sp" />
 
     <RelativeLayout
@@ -49,8 +50,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="11dp"
         android:paddingBottom="5dp"
-        android:text="How about...?"
-        android:textSize="24sp" />
+        android:text="Recommended"
+        android:textSize="15sp" />
 
 
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
@@ -64,8 +65,6 @@
             android:id="@+id/recomendations_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:orientation="horizontal"
             android:padding="5dp"
             android:scrollbars="none">
